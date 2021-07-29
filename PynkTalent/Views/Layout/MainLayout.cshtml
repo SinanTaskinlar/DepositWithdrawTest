@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Assets/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    @Html.Partial("~/Views/Partials/Header.cshtml")
+
+    <main>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    @Html.Partial("~/Views/Partials/Footer.cshtml")
+
+    <!-- Templates -->
+    @Html.Partial("~/Views/Partials/Templates/Alert.cshtml")
+
+    <script src="~/Assets/js/libraries/jquery.js"></script>
+    <script src="~/Assets/js/main.js"></script>
+</body>
+</html>

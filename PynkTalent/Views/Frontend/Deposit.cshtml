@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Deposit";
+    Layout = "~/Views/Layout/MainLayout.cshtml";
+}
+
+<div class="card">
+    <div class="wrapper">
+        <div class="body">
+            <section class="section-deposit">
+                <form class="content">
+                    <h2>Deposit</h2>
+
+                    <select name="users" class="form-element users">
+                        <option value="">Please select a user</option>
+                    </select>
+
+                    <div class="flex board">
+                        <div>
+                            Country: <span class="country">-</span>
+                        </div>
+                        <div>
+                            Balance: <span class="balance">-</span>
+                        </div>
+                    </div>
+                    Ananın amı
+                    <input type="number" name="amount" class="form-element" placeholder="Enter your deposit amount" />
+
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
