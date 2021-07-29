@@ -22,7 +22,7 @@ namespace PynkTalent.Controllers
 
         public JsonResult Users()
         {
-            var users = StaticModel.users.ToList();
+            var users = StaticModel.Users.ToList();
 
             return Json(new { result = true,users },JsonRequestBehavior.AllowGet);
         }
@@ -31,7 +31,7 @@ namespace PynkTalent.Controllers
         public JsonResult Deposit(int user_id,decimal amount)
         {
             string message = "Deposit is fail";
-            var user = StaticModel.users.FirstOrDefault(x => x.id == user_id);
+            var user = StaticModel.Users.FirstOrDefault(x => x.Id == user_id);
 
             user.SetState();
 
@@ -42,7 +42,7 @@ namespace PynkTalent.Controllers
                 message = "Deposit is successful";
             }
 
-            return Json(new { result,message,user.balance });
+            return Json(new { result,message,user.Balance });
         }
     }
 }

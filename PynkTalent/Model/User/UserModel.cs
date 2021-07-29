@@ -9,9 +9,9 @@ namespace PynkTalent.Models.User
 {
     public class UserModel
     {
-        #region Field
+		#region Field
 
-        private BaseState _country_state;
+		private BaseState _country_state;
         private IDepositFactory deposit_factory;
         private IWithdrawFactory withdraw_factory;
 
@@ -19,11 +19,11 @@ namespace PynkTalent.Models.User
 
         #region Properties
 
-        public int id { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public string country { get; set; }
-        public decimal balance { get; set; }
+        public int Id { get; set; }
+        public string First_name { get; set; }
+        public string Last_name { get; set; }
+        public string Country { get; set; }
+        public decimal Balance { get; set; }
 
         #endregion Properties
 
@@ -33,19 +33,19 @@ namespace PynkTalent.Models.User
         {
             var deposit_abstract_factory = new DepositAbstractFactory();
             var withdraw_abstract_factory = new WithdrawAbstractFactory();
-            deposit_factory = deposit_abstract_factory.Get(this.country_state);
-            withdraw_factory = withdraw_abstract_factory.Get(this.country_state);
+            deposit_factory = deposit_abstract_factory.Get(this.Country_state);
+            withdraw_factory = withdraw_abstract_factory.Get(this.Country_state);
         }
 
         #endregion Factory
 
         #region States
 
-        public Enums.User.State.Country country_state { get; set; }
+        public Enums.User.State.Country Country_state { get; set; }
 
         public void SetState()
         {
-            switch (country)
+            switch (Country)
             {
                 case "United Kingdom":
                     _country_state = new UKState(this);

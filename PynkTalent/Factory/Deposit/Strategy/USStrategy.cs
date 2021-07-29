@@ -9,7 +9,7 @@ namespace PynkTalent.Factory.Deposit.Strategy
     {
         public USStrategy()
         {
-            fee = 5;
+            Fee = 5;
         }
     }
 }

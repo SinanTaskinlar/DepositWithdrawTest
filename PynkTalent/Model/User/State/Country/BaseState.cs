@@ -10,7 +10,7 @@ namespace PynkTalent.Models.State
     {
         public BaseState(UserModel user)
         {
-            user.country_state = Enums.User.State.Country.All;
+            user.Country_state = Enums.User.State.Country.All;
         }
     }
 }

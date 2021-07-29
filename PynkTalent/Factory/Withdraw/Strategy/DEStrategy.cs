@@ -9,7 +9,7 @@ namespace PynkTalent.Factory.Withdraw.Strategy
 	{
 		public DEStrategy()
 		{
-			least_amount = 0;
+			Least_amount = 0;
 		}
 	}
 }

@@ -8,7 +8,7 @@ namespace PynkTalent.Factory.Deposit.Strategy {
 	{
 		public DEStrategy() {
 
-			fee = 10;
+			Fee = 10;
 
 		}
 	}

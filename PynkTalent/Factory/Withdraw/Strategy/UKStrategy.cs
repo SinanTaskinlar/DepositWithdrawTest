@@ -9,7 +9,7 @@ namespace PynkTalent.Factory.Withdraw.Strategy
 	{
 		public UKStrategy()
 		{
-			least_amount = 10;
+			Least_amount = 10;
 		}
 	}
 }

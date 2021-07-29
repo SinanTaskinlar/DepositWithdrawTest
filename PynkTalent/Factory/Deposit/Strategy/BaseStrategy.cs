@@ -15,7 +15,7 @@ namespace PynkTalent.Factory.Deposit.Strategy
 
         #endregion Field
 
-        public decimal fee
+        public decimal Fee
         {
             get
             {
@@ -29,26 +29,26 @@ namespace PynkTalent.Factory.Deposit.Strategy
 
         public virtual bool Deposit(UserModel user, decimal amount)
         {
-            if (amount <= fee)
+            if (amount <= Fee)
             {
                 return false;
             }
 
             var new_amount = DepositAmount(amount);
 
-            user.balance += new_amount;
+            user.Balance += new_amount;
 
             return true;
         }
 
         public virtual decimal DepositAmount(decimal amount)
         {
-            if (amount <= fee)
+            if (amount <= Fee)
             {
                 return -1;
             }
 
-            return amount - fee;
+            return amount - Fee;
         }
     }
 }

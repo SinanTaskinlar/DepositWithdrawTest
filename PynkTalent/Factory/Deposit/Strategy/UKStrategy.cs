@@ -10,7 +10,7 @@ namespace PynkTalent.Factory.Deposit.Strategy
     {
         public UKStrategy()
         {
-            fee = 0;
+            Fee = 0;
         }
     }
 }

@@ -8,6 +8,6 @@ namespace PynkTalent.Models
 {
     public static class StaticModel
     {
-        public static List<UserModel> users { get; set; }
+        public static List<UserModel> Users { get; set; }
     }
 }

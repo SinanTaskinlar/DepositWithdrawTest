@@ -11,7 +11,7 @@ namespace PynkTalent.Factory.Withdraw.Strategy
 	{
 		private decimal _least_amount = 20;
 
-		public decimal least_amount
+		public decimal Least_amount
 		{
 			get {
 				return _least_amount;
@@ -24,12 +24,12 @@ namespace PynkTalent.Factory.Withdraw.Strategy
 
 		public bool Withdraw(UserModel user,decimal amount)
 		{
-			if (amount <= least_amount || user.country_state == Enums.User.State.Country.Germany)
+			if (amount <= Least_amount || user.Country_state == Enums.User.State.Country.Germany)
 			{
 				return false;
 			}
 
-			user.balance = WithdrawAmount(user.balance, amount, user.country);
+			user.Balance = WithdrawAmount(user.Balance, amount, user.Country);
 
 			return true;
 		}
@@ -39,7 +39,7 @@ namespace PynkTalent.Factory.Withdraw.Strategy
 
 			if ( state == "DE" )
 				return 0;
-			if ( amount < least_amount )
+			if ( amount < Least_amount )
 				return 0;
 			if ( amount > balance )
 				return 0;

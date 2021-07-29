@@ -23,7 +23,7 @@ namespace PynkTalent.Test.Model.User
             var strategy = new BaseStrategy();
 
             // Assert
-            Assert.AreEqual(strategy.fee, fee);
+            Assert.AreEqual(strategy.Fee, fee);
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace PynkTalent.Test.Model.User
             var strategy = new UKStrategy();
 
             // Assert
-            Assert.AreEqual(strategy.fee, fee);
+            Assert.AreEqual(strategy.Fee, fee);
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace PynkTalent.Test.Model.User
             var strategy = new USStrategy();
 
             // Assert
-            Assert.AreEqual(strategy.fee, fee);
+            Assert.AreEqual(strategy.Fee, fee);
         }
 
         [Test]
