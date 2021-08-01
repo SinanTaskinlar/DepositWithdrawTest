@@ -10,6 +10,12 @@ namespace PynkTalent.Controllers
     public class FrontendController : Controller
     {
         // GET: Frontend
+
+        public ActionResult Index()
+        {
+            return View("~/Views/Frontend/Index.cshtml");
+        }
+
         public ActionResult Deposit()
         {
             return View("~/Views/Frontend/Deposit.cshtml");
@@ -40,6 +46,24 @@ namespace PynkTalent.Controllers
             if ( result )
             {
                 message = "Deposit is successful";
+            }
+
+            return Json(new { result,message,user.Balance });
+        }
+
+        [HttpPost]
+        public JsonResult Withdraw(int user_id,decimal amount)
+        {
+            string message = "Withdraw is fail";
+            var user = StaticModel.Users.FirstOrDefault(x => x.Id == user_id);
+
+            user.SetState();
+
+            var result = user.Withdraw(amount: amount);
+
+            if ( result )
+            {
+                message = "Withdraw is successful";
             }
 
             return Json(new { result,message,user.Balance });

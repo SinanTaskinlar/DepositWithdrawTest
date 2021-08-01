@@ -135,6 +135,7 @@
     <Content Include="Views\Partials\Footer.cshtml" />
     <Content Include="Views\Partials\Templates\Alert.cshtml" />
     <Content Include="Views\Frontend\Withdraw.cshtml" />
+    <Content Include="Views\Frontend\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

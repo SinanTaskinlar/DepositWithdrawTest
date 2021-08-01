@@ -1,14 +1,12 @@
-﻿@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Layout/MainLayout.cshtml";
-}
+﻿@{ ViewBag.Title = "Withdraw";
+    Layout = "~/Views/Layout/MainLayout.cshtml"; }
 
 <div class="card">
     <div class="wrapper">
         <div class="body">
             <section class="section-withdraw">
                 <form class="content">
-                    <h2>Deposit</h2>
+                    <h2>Withdraw</h2>
 
                     <select name="users" class="form-element users">
                         <option value="">Please select a user</option>
@@ -22,12 +20,9 @@
                             Balance: <span class="balance">-</span>
                         </div>
                     </div>
+                    <input type="number" name="amount" class="form-element" placeholder="Enter your deposit amount" />
 
-                    <input type="number" name="amount" class="form-element" placeholder="Enter your amount" />
-
-                    <div>
-                        <button class="button" type="submit"></button>
-                    </div>
+                    <button type="submit">Submit</button>
                 </form>
             </section>
         </div>

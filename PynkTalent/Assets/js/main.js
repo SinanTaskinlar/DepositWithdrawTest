@@ -10,11 +10,16 @@ function events() {
             type: "GET",
             url: "/frontend/Users",
             callback: (response) => {
+                console.log(response);
                 if (response.result) {
                     $.each(response.users, function (key, item) {
-                        var name = item.first_name + " " + item.last_name;
-
-                        $(".section-deposit .users").append("<option value=" + item.id + " data-country='" + item.country + "' data-balance='" + item.balance + "'>" + name + "</option>")
+                        var name = item.First_name + " " + item.Last_name;
+                        switch (document.title) {
+                            case "Deposit":
+                                $(".section-deposit .users").append("<option value=" + item.Id + " data-country='" + item.Country + "' data-balance='" + item.Balance + "'>" + name + "</option>");
+                            case "Withdraw":
+                                $(".section-withdraw .users").append("<option value=" + item.Id + " data-country='" + item.Country + "' data-balance='" + item.Balance + "'>" + name + "</option>");
+                        }
                     })
                 }
             }
@@ -56,8 +61,8 @@ function events() {
                 callback: (response) => {
                     if (response.result) {
                         $(".section-deposit .users").find(":selected").removeAttr("data-balance");
-                        $(".section-deposit .users").find(":selected").attr("data-balance", response.balance);
-                        $(".section-deposit .balance").html("$" + response.balance);
+                        $(".section-deposit .users").find(":selected").attr("data-balance", response.Balance);
+                        $(".section-deposit .balance").html("$" + response.Balance);
                         $(".section-deposit form input[name='amount']").val("");
                     }
 
@@ -85,6 +90,72 @@ function events() {
 
         $(".section-deposit .country").html(country ? country : "-");
         $(".section-deposit .balance").html(balance ? "$" + balance : "-");
+    });
+
+    $(".section-withdraw form").on("submit", function (event) {
+        event.preventDefault();
+
+        const amount = $(".section-withdraw form input[name='amount']").val();
+        const user = $(".section-withdraw form select[name='users']").val();
+
+        const has_amount = amount !== "";
+        const has_user = user !== "";
+        const is_amount_bigger_than_zero = amount > 0;
+
+        let submit = true;
+        let alert_text = "";
+
+        if (!is_amount_bigger_than_zero) {
+            submit = false;
+            alert_text = "Your withdraw amount should be bigger than zero.";
+        }
+
+        if (!has_amount || !has_user) {
+            submit = false;
+            alert_text = "Please fill empty fields.";
+        }
+
+        if (submit) {
+            fetch({
+                dataType: "json",
+                url: "/frontend/withdraw/",
+                type: "POST",
+                data: {
+                    user_id: user,
+                    amount: amount
+                },
+                callback: (response) => {
+                    if (response.result) {
+                        $(".section-withdraw .users").find(":selected").removeAttr("data-balance");
+                        $(".section-withdraw .users").find(":selected").attr("data-balance", response.Balance);
+                        $(".section-withdraw .balance").html("$" + response.Balance);
+                        $(".section-withdraw form input[name='amount']").val("");
+                    }
+
+                    new Notification({
+                        type: "Alert",
+                        title: "Withdraw",
+                        content: response.message,
+                        button_text: "Okay"
+                    }).show();
+                }
+            })
+        } else {
+            new Notification({
+                type: "Alert",
+                title: "Withdraw",
+                content: alert_text,
+                button_text: "Okay"
+            }).show();
+        }
+    })
+
+    $(".section-withdraw .users").unbind().on("change", function (event) {
+        var balance = $(this).find(":selected").attr("data-balance");
+        var country = $(this).find(":selected").attr("data-country");
+
+        $(".section-withdraw .country").html(country ? country : "-");
+        $(".section-withdraw .balance").html(balance ? "$" + balance : "-");
     });
 }
 

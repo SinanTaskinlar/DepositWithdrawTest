@@ -16,7 +16,19 @@ namespace PynkTalent
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Frontend", action = "Deposit", id = UrlParameter.Optional }
+                defaults: new { controller = "Frontend", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Deposit",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Frontend",action = "Deposit",id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Withdraw",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Frontend",action = "Withdraw",id = UrlParameter.Optional }
             );
         }
     }
