@@ -1,12 +1,6 @@
-# Backend Developer Code Test
-We created this exercise to gain insights about your development skills.
+# Test
 
 ## Information
-Backend Developer Code Test project is presented in C# language.
-
-_If you have frontend development skills, don't be hesitate to use JavaScript to show off your skills._
-
-**Click here to access the [Backend Test project](https://dev.azure.com/Pynk/Talent/_git/Backend%20Project).**
 
 ## Instructions
 - There are users with different countries and balance values in the application.
@@ -23,8 +17,3 @@ _If you have frontend development skills, don't be hesitate to use JavaScript to
 - Development should be done in accordance with SOLID principles.
 - Clean Code principles must be taken into consideration.
 - Development should be made while preserving the existing architecture.
-
-## Procedure
-We ask you to send us a git repository (a link to which we can access).
-
-**[Click here to submit your code testing project](https://go.pynk.io/backend-project-submission)**
